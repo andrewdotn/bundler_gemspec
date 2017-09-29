@@ -7,7 +7,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  erubis
   rack
 
 BUNDLED WITH
