@@ -1,0 +1,25 @@
+#!/bin/bash
+
+BUNDLE=~/.gem/ruby/2.4.0/gems/bundler-1.16.0.pre.2/exe/bundle
+
+function test() {
+    SOURCE="${1}"
+
+    echo bundle install
+    $BUNDLE install
+
+    echo Updating $SOURCE
+    mv $SOURCE $SOURCE.old && cp $SOURCE.new $SOURCE
+    diff -u $SOURCE.old $SOURCE
+    cp Gemfile.lock{,.orig}
+
+    echo bundle install again
+    $BUNDLE install
+    diff -u Gemfile.lock{.orig,}
+}
+
+echo Gemfile
+(cd gemfile && test Gemfile)
+echo
+echo gemspec
+(cd gemspec && test foo.gemspec)

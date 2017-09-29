@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    test1 (0.0.0)
+      rack
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rack (2.0.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  test1!
+
+BUNDLED WITH
+   1.16.0.pre.2
